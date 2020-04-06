@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>RPCContext | @noveo/dual-rpc-ws</title>
+	<title>CloseEvent | @noveo/dual-rpc-ws</title>
 	<meta name="description" content="Documentation for @noveo/dual-rpc-ws">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,28 +56,24 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="rpccontext.html">RPCContext</a>
+					<a href="clientsocket.html">ClientSocket</a>
+				</li>
+				<li>
+					<a href="clientsocket.closeevent.html">CloseEvent</a>
 				</li>
 			</ul>
-			<h1>Interface RPCContext</h1>
+			<h1>Interface CloseEvent</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>A default context object. Every local RPC call have an object</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">RPCContext</span>
+						<span class="target">CloseEvent</span>
 					</li>
 				</ul>
 			</section>
@@ -88,8 +84,10 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="rpccontext.html#id" class="tsd-kind-icon">id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="rpccontext.html#token" class="tsd-kind-icon">token</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="clientsocket.closeevent.html#code" class="tsd-kind-icon">code</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="clientsocket.closeevent.html#reason" class="tsd-kind-icon">reason</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="clientsocket.closeevent.html#target" class="tsd-kind-icon">target</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="clientsocket.closeevent.html#wasclean" class="tsd-kind-icon">was<wbr>Clean</a></li>
 							</ul>
 						</section>
 					</div>
@@ -98,22 +96,42 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="id" class="tsd-anchor"></a>
-					<h3>id</h3>
-					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <a href="../globals.html#id" class="tsd-signature-type">Id</a></div>
+					<a name="code" class="tsd-anchor"></a>
+					<h3>code</h3>
+					<div class="tsd-signature tsd-kind-icon">code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/agsh/rpc/blob/8e6e485/src/common.ts#L47">src/common.ts:47</a></li>
+							<li>Defined in node_modules/@types/ws/index.d.ts:189</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="token" class="tsd-anchor"></a>
-					<h3>token</h3>
-					<div class="tsd-signature tsd-kind-icon">token<span class="tsd-signature-symbol">:</span> <a href="../globals.html#id" class="tsd-signature-type">Id</a></div>
+					<a name="reason" class="tsd-anchor"></a>
+					<h3>reason</h3>
+					<div class="tsd-signature tsd-kind-icon">reason<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/agsh/rpc/blob/8e6e485/src/common.ts#L48">src/common.ts:48</a></li>
+							<li>Defined in node_modules/@types/ws/index.d.ts:190</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="target" class="tsd-anchor"></a>
+					<h3>target</h3>
+					<div class="tsd-signature tsd-kind-icon">target<span class="tsd-signature-symbol">:</span> <a href="../classes/client.html#websocket" class="tsd-signature-type">WebSocket</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in node_modules/@types/ws/index.d.ts:191</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="wasclean" class="tsd-anchor"></a>
+					<h3>was<wbr>Clean</h3>
+					<div class="tsd-signature tsd-kind-icon">was<wbr>Clean<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in node_modules/@types/ws/index.d.ts:188</li>
 						</ul>
 					</aside>
 				</section>
@@ -141,24 +159,35 @@
 					<li class=" tsd-kind-class">
 						<a href="../classes/server.html" class="tsd-kind-icon">Server</a>
 					</li>
-					<li class=" tsd-kind-interface">
-						<a href="clientsocket.html" class="tsd-kind-icon">Client<wbr>Socket</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="rpccontext.html" class="tsd-kind-icon">RPCContext</a>
+						<a href="clientsocket.html" class="tsd-kind-icon">Client<wbr>Socket</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="rpccontext.html#id" class="tsd-kind-icon">id</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="rpccontext.html#token" class="tsd-kind-icon">token</a>
+							<li class="current tsd-kind-interface tsd-parent-kind-interface">
+								<a href="clientsocket.closeevent.html" class="tsd-kind-icon">Close<wbr>Event</a>
+								<ul>
+									<li class=" tsd-kind-property tsd-parent-kind-interface">
+										<a href="clientsocket.closeevent.html#code" class="tsd-kind-icon">code</a>
+									</li>
+									<li class=" tsd-kind-property tsd-parent-kind-interface">
+										<a href="clientsocket.closeevent.html#reason" class="tsd-kind-icon">reason</a>
+									</li>
+									<li class=" tsd-kind-property tsd-parent-kind-interface">
+										<a href="clientsocket.closeevent.html#target" class="tsd-kind-icon">target</a>
+									</li>
+									<li class=" tsd-kind-property tsd-parent-kind-interface">
+										<a href="clientsocket.closeevent.html#wasclean" class="tsd-kind-icon">was<wbr>Clean</a>
+									</li>
+								</ul>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface">
+						<a href="rpccontext.html" class="tsd-kind-icon">RPCContext</a>
+					</li>
 					<li class=" tsd-kind-interface">
 						<a href="rpcmessage.html" class="tsd-kind-icon">RPCMessage</a>
 					</li>

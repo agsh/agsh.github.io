@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ErrorEvent | @noveo/dual-rpc-ws</title>
+	<title>RequestParams | @noveo/dual-rpc-ws</title>
 	<meta name="description" content="Documentation for @noveo/dual-rpc-ws">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="devicesocket.html">DeviceSocket</a>
-				</li>
-				<li>
-					<a href="devicesocket.errorevent.html">ErrorEvent</a>
+					<a href="requestparams.html">RequestParams</a>
 				</li>
 			</ul>
-			<h1>Interface ErrorEvent</h1>
+			<h1>Interface RequestParams</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +70,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ErrorEvent</span>
+						<span class="target">RequestParams</span>
 					</li>
 				</ul>
 			</section>
@@ -84,10 +81,10 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="devicesocket.errorevent.html#error" class="tsd-kind-icon">error</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="devicesocket.errorevent.html#message" class="tsd-kind-icon">message</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="devicesocket.errorevent.html#target" class="tsd-kind-icon">target</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="devicesocket.errorevent.html#type" class="tsd-kind-icon">type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="requestparams.html#destructor" class="tsd-kind-icon">destructor</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="requestparams.html#reject" class="tsd-kind-icon">reject</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="requestparams.html#resolve" class="tsd-kind-icon">resolve</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="requestparams.html#timeout" class="tsd-kind-icon">timeout</a></li>
 							</ul>
 						</section>
 					</div>
@@ -96,42 +93,99 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="error" class="tsd-anchor"></a>
-					<h3>error</h3>
-					<div class="tsd-signature tsd-kind-icon">error<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<a name="destructor" class="tsd-anchor"></a>
+					<h3>destructor</h3>
+					<div class="tsd-signature tsd-kind-icon">destructor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in node_modules/@types/ws/index.d.ts:181</li>
+							<li>Defined in <a href="https://github.com/agsh/rpc/blob/8e6e485/src/common.ts#L116">src/common.ts:116</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="message" class="tsd-anchor"></a>
-					<h3>message</h3>
-					<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="reject" class="tsd-anchor"></a>
+					<h3>reject</h3>
+					<div class="tsd-signature tsd-kind-icon">reject<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in node_modules/@types/ws/index.d.ts:182</li>
+							<li>Defined in <a href="https://github.com/agsh/rpc/blob/8e6e485/src/common.ts#L115">src/common.ts:115</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>error: <span class="tsd-signature-type">Error</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="target" class="tsd-anchor"></a>
-					<h3>target</h3>
-					<div class="tsd-signature tsd-kind-icon">target<span class="tsd-signature-symbol">:</span> <a href="../classes/client.html#websocket" class="tsd-signature-type">WebSocket</a></div>
+					<a name="resolve" class="tsd-anchor"></a>
+					<h3>resolve</h3>
+					<div class="tsd-signature tsd-kind-icon">resolve<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>result<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in node_modules/@types/ws/index.d.ts:184</li>
+							<li>Defined in <a href="https://github.com/agsh/rpc/blob/8e6e485/src/common.ts#L114">src/common.ts:114</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>result<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>result: <span class="tsd-signature-type">any</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="type" class="tsd-anchor"></a>
-					<h3>type</h3>
-					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="timeout" class="tsd-anchor"></a>
+					<h3>timeout</h3>
+					<div class="tsd-signature tsd-kind-icon">timeout<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in node_modules/@types/ws/index.d.ts:183</li>
+							<li>Defined in <a href="https://github.com/agsh/rpc/blob/8e6e485/src/common.ts#L113">src/common.ts:113</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -159,46 +213,44 @@
 					<li class=" tsd-kind-class">
 						<a href="../classes/server.html" class="tsd-kind-icon">Server</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface">
-						<a href="devicesocket.html" class="tsd-kind-icon">Device<wbr>Socket</a>
-						<ul>
-							<li class="current tsd-kind-interface tsd-parent-kind-interface">
-								<a href="devicesocket.errorevent.html" class="tsd-kind-icon">Error<wbr>Event</a>
-								<ul>
-									<li class=" tsd-kind-property tsd-parent-kind-interface">
-										<a href="devicesocket.errorevent.html#error" class="tsd-kind-icon">error</a>
-									</li>
-									<li class=" tsd-kind-property tsd-parent-kind-interface">
-										<a href="devicesocket.errorevent.html#message" class="tsd-kind-icon">message</a>
-									</li>
-									<li class=" tsd-kind-property tsd-parent-kind-interface">
-										<a href="devicesocket.errorevent.html#target" class="tsd-kind-icon">target</a>
-									</li>
-									<li class=" tsd-kind-property tsd-parent-kind-interface">
-										<a href="devicesocket.errorevent.html#type" class="tsd-kind-icon">type</a>
-									</li>
-								</ul>
-							</li>
-						</ul>
+					<li class=" tsd-kind-interface">
+						<a href="clientsocket.html" class="tsd-kind-icon">Client<wbr>Socket</a>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface">
 						<a href="rpccontext.html" class="tsd-kind-icon">RPCContext</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="rpcmessage.html" class="tsd-kind-icon">RPCMessage</a>
 					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface">
+						<a href="requestparams.html" class="tsd-kind-icon">Request<wbr>Params</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="requestparams.html#destructor" class="tsd-kind-icon">destructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="requestparams.html#reject" class="tsd-kind-icon">reject</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="requestparams.html#resolve" class="tsd-kind-icon">resolve</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="requestparams.html#timeout" class="tsd-kind-icon">timeout</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface">
 						<a href="serveroptions.html" class="tsd-kind-icon">Server<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#id" class="tsd-kind-icon">id</a>
+						<a href="../globals.html#id" class="tsd-kind-icon">Id</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#name" class="tsd-kind-icon">name</a>
+						<a href="../globals.html#name" class="tsd-kind-icon">Name</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../globals.html#ws" class="tsd-kind-icon">ws</a>

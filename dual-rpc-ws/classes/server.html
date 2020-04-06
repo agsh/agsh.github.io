@@ -66,11 +66,49 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Websocket server class which accepts the connection from the clients,
+							checks their tokens. It can <a href="server.html#register">register</a> any method
+							to call it by the client.
+							And also can <a href="server.html#call">call</a> any method on the client by its token
+						and receive response data.</p>
+					</div>
+					<p>The main parts of this class are:</p>
+					<ul>
+						<li><a href="../interfaces/serveroptions.html#handshake">handshake</a> handler for the constructor</li>
+						<li><a href="../interfaces/serveroptions.html#preparecontext">prepareContext</a> function for the constructor</li>
+						<li><a href="server.html#register">register</a> method to handle clients&#39; calls</li>
+						<li><a href="server.html#call">call</a> method to execute clients&#39; methods</li>
+						<li><a href="server.html#rpcclose">rpcClose</a> event for all disconnected clients</li>
+					</ul>
+					<dl class="tsd-comment-tags">
+						<dt>example</dt>
+						<dd><pre><code class="language-typescript"><span class="hljs-keyword">import</span> Server <span class="hljs-keyword">from</span> <span class="hljs-string">'@noveo/dual-rpc-ws'</span>;
+
+<span class="hljs-keyword">const</span> server = <span class="hljs-keyword">new</span> Server({
+  port: <span class="hljs-number">8081</span>,
+  handshake: <span class="hljs-keyword">async</span> (token) =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'connected'</span>, token);
+    <span class="hljs-keyword">this</span>.call(token, <span class="hljs-string">'hi'</span>, {message: <span class="hljs-string">'hello from server'</span>});
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve(<span class="hljs-literal">true</span>);
+  },
+});
+
+server.register(<span class="hljs-string">'hi'</span>, <span class="hljs-function">(<span class="hljs-params">token, params</span>) =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'server hi'</span>, params);
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve(<span class="hljs-string">`<span class="hljs-subst">${token}</span>, hello`</span>);
+});</code></pre>
+						</dd>
+					</dl>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="devicesocket.server.html" class="tsd-signature-type">Server</a>
+						<a href="clientsocket.server.html" class="tsd-signature-type">Server</a>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">Server</span>
@@ -87,6 +125,12 @@
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="server.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Events</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-event tsd-parent-kind-class"><a href="server.html#rpcclose" class="tsd-kind-icon">rpc<wbr>Close</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -142,11 +186,21 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="devicesocket.server.html">Server</a>.<a href="devicesocket.server.html#constructor">constructor</a></p>
+								<p>Overrides <a href="clientsocket.server.html">Server</a>.<a href="clientsocket.server.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/agsh/rpc/blob/447798d/src/server.ts#L36">src/server.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/agsh/rpc/blob/8e6e485/src/server.ts#L95">src/server.ts:95</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Setup the server with ws.ServerOptions object.</p>
+								</div>
+								<p><a href="../interfaces/serveroptions.html#handshake">ServerOptions.handshake</a> is the handler for the new connections.
+									It accepts client token, <a href="../interfaces/clientsocket.html">ClientSocket</a> instance
+									of the new connection and returns <code>true</code>
+									if the connection can be established and <code>false</code> to broke the connection.
+								If you don&#39;t pass the <code>handshake</code> property, server will accept every client.</p>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -159,13 +213,53 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Events</h2>
+				<section class="tsd-panel tsd-member tsd-kind-event tsd-parent-kind-class">
+					<a name="rpcclose" class="tsd-anchor"></a>
+					<h3>rpc<wbr>Close</h3>
+					<ul class="tsd-signatures tsd-kind-event tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">rpc<wbr>Close<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><a href="../globals.html#id" class="tsd-signature-type">Id</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/agsh/rpc/blob/8e6e485/src/server.ts#L189">src/server.ts:189</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Fires when the connection with the client closed</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-typescript">rpc.on(<span class="hljs-string">'rpcClose'</span>, <span class="hljs-function">(<span class="hljs-params">token</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Client disconnected <span class="hljs-subst">${token}</span>`</span>));</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>token: <a href="../globals.html#id" class="tsd-signature-type">Id</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The unique token of the client from the
+										<a href="server.html#handshake">Server.handshake</a> handler</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="clients" class="tsd-anchor"></a>
 					<h3>clients</h3>
 					<div class="tsd-signature tsd-kind-icon">clients<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><a href="client.html#websocket" class="tsd-signature-type">WebSocket</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="devicesocket.server.html">Server</a>.<a href="devicesocket.server.html#clients">clients</a></p>
+						<p>Inherited from <a href="clientsocket.server.html">Server</a>.<a href="clientsocket.server.html#clients">clients</a></p>
 						<ul>
 							<li>Defined in node_modules/@types/ws/index.d.ts:224</li>
 						</ul>
@@ -174,29 +268,29 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="devices" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> devices</h3>
-					<div class="tsd-signature tsd-kind-icon">devices<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/rpcmessage.html#id" class="tsd-signature-type">id</a><span class="tsd-signature-symbol">, </span><a href="client.html#websocket" class="tsd-signature-type">WebSocket</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">devices<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#id" class="tsd-signature-type">Id</a><span class="tsd-signature-symbol">, </span><a href="client.html#websocket" class="tsd-signature-type">WebSocket</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/agsh/rpc/blob/447798d/src/server.ts#L25">src/server.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/agsh/rpc/blob/8e6e485/src/server.ts#L84">src/server.ts:84</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="methods" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> methods</h3>
-					<div class="tsd-signature tsd-kind-icon">methods<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#name" class="tsd-signature-type">name</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><a href="../interfaces/rpccontext.html" class="tsd-signature-type">RPCContext</a>, params<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">methods<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#name" class="tsd-signature-type">Name</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><a href="../interfaces/rpccontext.html" class="tsd-signature-type">RPCContext</a>, params<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/agsh/rpc/blob/447798d/src/server.ts#L27">src/server.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/agsh/rpc/blob/8e6e485/src/server.ts#L86">src/server.ts:86</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="options" class="tsd-anchor"></a>
 					<h3>options</h3>
-					<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <a href="../interfaces/devicesocket.serveroptions.html" class="tsd-signature-type">ServerOptions</a></div>
+					<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <a href="../interfaces/clientsocket.serveroptions.html" class="tsd-signature-type">ServerOptions</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="devicesocket.server.html">Server</a>.<a href="devicesocket.server.html#options">options</a></p>
+						<p>Inherited from <a href="clientsocket.server.html">Server</a>.<a href="clientsocket.server.html#options">options</a></p>
 						<ul>
 							<li>Defined in node_modules/@types/ws/index.d.ts:222</li>
 						</ul>
@@ -207,7 +301,7 @@
 					<h3>path</h3>
 					<div class="tsd-signature tsd-kind-icon">path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="devicesocket.server.html">Server</a>.<a href="devicesocket.server.html#path">path</a></p>
+						<p>Inherited from <a href="clientsocket.server.html">Server</a>.<a href="clientsocket.server.html#path">path</a></p>
 						<ul>
 							<li>Defined in node_modules/@types/ws/index.d.ts:223</li>
 						</ul>
@@ -216,10 +310,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="requests" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> requests</h3>
-					<div class="tsd-signature tsd-kind-icon">requests<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/rpcmessage.html#id" class="tsd-signature-type">id</a><span class="tsd-signature-symbol">, </span><a href="request.html" class="tsd-signature-type">Request</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">requests<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#id" class="tsd-signature-type">Id</a><span class="tsd-signature-symbol">, </span><a href="request.html" class="tsd-signature-type">Request</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/agsh/rpc/blob/447798d/src/server.ts#L29">src/server.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/agsh/rpc/blob/8e6e485/src/server.ts#L88">src/server.ts:88</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -239,7 +333,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="devicesocket.server.html">Server</a>.<a href="devicesocket.server.html#addlistener">addListener</a></p>
+								<p>Inherited from <a href="clientsocket.server.html">Server</a>.<a href="clientsocket.server.html#addlistener">addListener</a></p>
 								<p>Overrides EventEmitter.addListener</p>
 								<ul>
 									<li>Defined in node_modules/@types/ws/index.d.ts:241</li>
@@ -276,7 +370,7 @@
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="devicesocket.server.html">Server</a>.<a href="devicesocket.server.html#addlistener">addListener</a></p>
+								<p>Inherited from <a href="clientsocket.server.html">Server</a>.<a href="clientsocket.server.html#addlistener">addListener</a></p>
 								<p>Overrides EventEmitter.addListener</p>
 								<ul>
 									<li>Defined in node_modules/@types/ws/index.d.ts:242</li>
@@ -313,7 +407,7 @@
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="devicesocket.server.html">Server</a>.<a href="devicesocket.server.html#addlistener">addListener</a></p>
+								<p>Inherited from <a href="clientsocket.server.html">Server</a>.<a href="clientsocket.server.html#addlistener">addListener</a></p>
 								<p>Overrides EventEmitter.addListener</p>
 								<ul>
 									<li>Defined in node_modules/@types/ws/index.d.ts:243</li>
@@ -353,7 +447,7 @@
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="devicesocket.server.html">Server</a>.<a href="devicesocket.server.html#addlistener">addListener</a></p>
+								<p>Inherited from <a href="clientsocket.server.html">Server</a>.<a href="clientsocket.server.html#addlistener">addListener</a></p>
 								<p>Overrides EventEmitter.addListener</p>
 								<ul>
 									<li>Defined in node_modules/@types/ws/index.d.ts:244</li>
@@ -384,7 +478,7 @@
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="devicesocket.server.html">Server</a>.<a href="devicesocket.server.html#addlistener">addListener</a></p>
+								<p>Inherited from <a href="clientsocket.server.html">Server</a>.<a href="clientsocket.server.html#addlistener">addListener</a></p>
 								<p>Overrides EventEmitter.addListener</p>
 								<ul>
 									<li>Defined in node_modules/@types/ws/index.d.ts:245</li>
@@ -425,17 +519,17 @@
 					<a name="address" class="tsd-anchor"></a>
 					<h3>address</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">address<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/devicesocket.addressinfo.html" class="tsd-signature-type">AddressInfo</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">address<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/clientsocket.addressinfo.html" class="tsd-signature-type">AddressInfo</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="devicesocket.server.html">Server</a>.<a href="devicesocket.server.html#address">address</a></p>
+								<p>Inherited from <a href="clientsocket.server.html">Server</a>.<a href="clientsocket.server.html#address">address</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/ws/index.d.ts:228</li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/devicesocket.addressinfo.html" class="tsd-signature-type">AddressInfo</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/clientsocket.addressinfo.html" class="tsd-signature-type">AddressInfo</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -443,28 +537,55 @@
 					<a name="call" class="tsd-anchor"></a>
 					<h3>call</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">call<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, method<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, params<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">call<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><a href="../globals.html#id" class="tsd-signature-type">Id</a>, method<span class="tsd-signature-symbol">: </span><a href="../globals.html#name" class="tsd-signature-type">Name</a>, params<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/agsh/rpc/blob/447798d/src/server.ts#L111">src/server.ts:111</a></li>
+									<li>Defined in <a href="https://github.com/agsh/rpc/blob/8e6e485/src/server.ts#L207">src/server.ts:207</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Call the client&#39;s method by the token and method name using params as one
+									argument construction.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>one of these errors:</p>
+										<ul>
+											<li>When the client with token doesn&#39;t connected</li>
+											<li>When the method doesn&#39;t present on the client side</li>
+											<li>When the method call on the client side triggered an exception</li>
+										</ul>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>token: <span class="tsd-signature-type">string</span></h5>
+									<h5>token: <a href="../globals.html#id" class="tsd-signature-type">Id</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Unique token of the client</p>
+									</div>
 								</li>
 								<li>
-									<h5>method: <span class="tsd-signature-type">string</span></h5>
+									<h5>method: <a href="../globals.html#name" class="tsd-signature-type">Name</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The name of the remote method to call</p>
+									</div>
 								</li>
 								<li>
-									<h5>params: <span class="tsd-signature-type">object</span></h5>
+									<h5>params: <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Method arguments</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Returns a Promise with the JSON response from the client. It can be an
+							object, an array or a primitive.</p>
 						</li>
 					</ul>
 				</section>
@@ -477,7 +598,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="devicesocket.server.html">Server</a>.<a href="devicesocket.server.html#close">close</a></p>
+								<p>Inherited from <a href="clientsocket.server.html">Server</a>.<a href="clientsocket.server.html#close">close</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/ws/index.d.ts:229</li>
 								</ul>
@@ -501,7 +622,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="../interfaces/devicesocket.html">DeviceSocket</a>.<a href="../interfaces/devicesocket.html#emit">emit</a></p>
+								<p>Inherited from <a href="../interfaces/clientsocket.html">ClientSocket</a>.<a href="../interfaces/clientsocket.html#emit">emit</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:557</li>
 								</ul>
@@ -528,7 +649,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="../interfaces/devicesocket.html">DeviceSocket</a>.<a href="../interfaces/devicesocket.html#eventnames">eventNames</a></p>
+								<p>Inherited from <a href="../interfaces/clientsocket.html">ClientSocket</a>.<a href="../interfaces/clientsocket.html#eventnames">eventNames</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:562</li>
 								</ul>
@@ -546,7 +667,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="../interfaces/devicesocket.html">DeviceSocket</a>.<a href="../interfaces/devicesocket.html#getmaxlisteners">getMaxListeners</a></p>
+								<p>Inherited from <a href="../interfaces/clientsocket.html">ClientSocket</a>.<a href="../interfaces/clientsocket.html#getmaxlisteners">getMaxListeners</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:554</li>
 								</ul>
@@ -564,7 +685,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="devicesocket.server.html">Server</a>.<a href="devicesocket.server.html#handleupgrade">handleUpgrade</a></p>
+								<p>Inherited from <a href="clientsocket.server.html">Server</a>.<a href="clientsocket.server.html#handleupgrade">handleUpgrade</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/ws/index.d.ts:230</li>
 								</ul>
@@ -616,7 +737,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/agsh/rpc/blob/447798d/src/server.ts#L34">src/server.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/agsh/rpc/blob/8e6e485/src/server.ts#L93">src/server.ts:93</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -638,7 +759,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="../interfaces/devicesocket.html">DeviceSocket</a>.<a href="../interfaces/devicesocket.html#listenercount">listenerCount</a></p>
+								<p>Inherited from <a href="../interfaces/clientsocket.html">ClientSocket</a>.<a href="../interfaces/clientsocket.html#listenercount">listenerCount</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:558</li>
 								</ul>
@@ -662,7 +783,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="../interfaces/devicesocket.html">DeviceSocket</a>.<a href="../interfaces/devicesocket.html#listeners">listeners</a></p>
+								<p>Inherited from <a href="../interfaces/clientsocket.html">ClientSocket</a>.<a href="../interfaces/clientsocket.html#listeners">listeners</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:555</li>
 								</ul>
@@ -686,7 +807,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="../interfaces/devicesocket.html">DeviceSocket</a>.<a href="../interfaces/devicesocket.html#off">off</a></p>
+								<p>Inherited from <a href="../interfaces/clientsocket.html">ClientSocket</a>.<a href="../interfaces/clientsocket.html#off">off</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:551</li>
 								</ul>
@@ -726,16 +847,16 @@
 					<a name="on" class="tsd-anchor"></a>
 					<h3>on</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"connection"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="devicesocket.server.html" class="tsd-signature-type">Server</a>, socket<span class="tsd-signature-symbol">: </span><a href="client.html#websocket" class="tsd-signature-type">WebSocket</a>, request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IncomingMessage</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"error"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="devicesocket.server.html" class="tsd-signature-type">Server</a>, error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"headers"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="devicesocket.server.html" class="tsd-signature-type">Server</a>, headers<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IncomingMessage</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"close"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"listening"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="devicesocket.server.html" class="tsd-signature-type">Server</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="devicesocket.server.html" class="tsd-signature-type">Server</a>, <span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"connection"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="clientsocket.server.html" class="tsd-signature-type">Server</a>, socket<span class="tsd-signature-symbol">: </span><a href="client.html#websocket" class="tsd-signature-type">WebSocket</a>, request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IncomingMessage</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"error"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="clientsocket.server.html" class="tsd-signature-type">Server</a>, error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"headers"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="clientsocket.server.html" class="tsd-signature-type">Server</a>, headers<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IncomingMessage</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"close"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"listening"</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="clientsocket.server.html" class="tsd-signature-type">Server</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="clientsocket.server.html" class="tsd-signature-type">Server</a>, <span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="devicesocket.server.html">Server</a>.<a href="devicesocket.server.html#on">on</a></p>
+								<p>Inherited from <a href="clientsocket.server.html">Server</a>.<a href="clientsocket.server.html#on">on</a></p>
 								<p>Overrides EventEmitter.on</p>
 								<ul>
 									<li>Defined in node_modules/@types/ws/index.d.ts:235</li>
@@ -747,18 +868,18 @@
 									<h5>event: <span class="tsd-signature-type">"connection"</span></h5>
 								</li>
 								<li>
-									<h5>cb: <span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="devicesocket.server.html" class="tsd-signature-type">Server</a>, socket<span class="tsd-signature-symbol">: </span><a href="client.html#websocket" class="tsd-signature-type">WebSocket</a>, request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IncomingMessage</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<h5>cb: <span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="clientsocket.server.html" class="tsd-signature-type">Server</a>, socket<span class="tsd-signature-symbol">: </span><a href="client.html#websocket" class="tsd-signature-type">WebSocket</a>, request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IncomingMessage</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-signature">
 											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="devicesocket.server.html" class="tsd-signature-type">Server</a>, socket<span class="tsd-signature-symbol">: </span><a href="client.html#websocket" class="tsd-signature-type">WebSocket</a>, request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IncomingMessage</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="clientsocket.server.html" class="tsd-signature-type">Server</a>, socket<span class="tsd-signature-symbol">: </span><a href="client.html#websocket" class="tsd-signature-type">WebSocket</a>, request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IncomingMessage</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>this: <a href="devicesocket.server.html" class="tsd-signature-type">Server</a></h5>
+															<h5>this: <a href="clientsocket.server.html" class="tsd-signature-type">Server</a></h5>
 														</li>
 														<li>
 															<h5>socket: <a href="client.html#websocket" class="tsd-signature-type">WebSocket</a></h5>
@@ -778,7 +899,7 @@
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="devicesocket.server.html">Server</a>.<a href="devicesocket.server.html#on">on</a></p>
+								<p>Inherited from <a href="clientsocket.server.html">Server</a>.<a href="clientsocket.server.html#on">on</a></p>
 								<p>Overrides EventEmitter.on</p>
 								<ul>
 									<li>Defined in node_modules/@types/ws/index.d.ts:236</li>
@@ -790,18 +911,18 @@
 									<h5>event: <span class="tsd-signature-type">"error"</span></h5>
 								</li>
 								<li>
-									<h5>cb: <span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="devicesocket.server.html" class="tsd-signature-type">Server</a>, error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<h5>cb: <span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="clientsocket.server.html" class="tsd-signature-type">Server</a>, error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-signature">
 											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="devicesocket.server.html" class="tsd-signature-type">Server</a>, error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="clientsocket.server.html" class="tsd-signature-type">Server</a>, error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>this: <a href="devicesocket.server.html" class="tsd-signature-type">Server</a></h5>
+															<h5>this: <a href="clientsocket.server.html" class="tsd-signature-type">Server</a></h5>
 														</li>
 														<li>
 															<h5>error: <span class="tsd-signature-type">Error</span></h5>
@@ -818,7 +939,7 @@
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="devicesocket.server.html">Server</a>.<a href="devicesocket.server.html#on">on</a></p>
+								<p>Inherited from <a href="clientsocket.server.html">Server</a>.<a href="clientsocket.server.html#on">on</a></p>
 								<p>Overrides EventEmitter.on</p>
 								<ul>
 									<li>Defined in node_modules/@types/ws/index.d.ts:237</li>
@@ -830,18 +951,18 @@
 									<h5>event: <span class="tsd-signature-type">"headers"</span></h5>
 								</li>
 								<li>
-									<h5>cb: <span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="devicesocket.server.html" class="tsd-signature-type">Server</a>, headers<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IncomingMessage</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<h5>cb: <span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="clientsocket.server.html" class="tsd-signature-type">Server</a>, headers<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IncomingMessage</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-signature">
 											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="devicesocket.server.html" class="tsd-signature-type">Server</a>, headers<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IncomingMessage</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="clientsocket.server.html" class="tsd-signature-type">Server</a>, headers<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IncomingMessage</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>this: <a href="devicesocket.server.html" class="tsd-signature-type">Server</a></h5>
+															<h5>this: <a href="clientsocket.server.html" class="tsd-signature-type">Server</a></h5>
 														</li>
 														<li>
 															<h5>headers: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
@@ -861,7 +982,7 @@
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="devicesocket.server.html">Server</a>.<a href="devicesocket.server.html#on">on</a></p>
+								<p>Inherited from <a href="clientsocket.server.html">Server</a>.<a href="clientsocket.server.html#on">on</a></p>
 								<p>Overrides EventEmitter.on</p>
 								<ul>
 									<li>Defined in node_modules/@types/ws/index.d.ts:238</li>
@@ -873,18 +994,18 @@
 									<h5>event: <span class="tsd-signature-type">"close"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"listening"</span></h5>
 								</li>
 								<li>
-									<h5>cb: <span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="devicesocket.server.html" class="tsd-signature-type">Server</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<h5>cb: <span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="clientsocket.server.html" class="tsd-signature-type">Server</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-signature">
 											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="devicesocket.server.html" class="tsd-signature-type">Server</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="clientsocket.server.html" class="tsd-signature-type">Server</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>this: <a href="devicesocket.server.html" class="tsd-signature-type">Server</a></h5>
+															<h5>this: <a href="clientsocket.server.html" class="tsd-signature-type">Server</a></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -898,7 +1019,7 @@
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="devicesocket.server.html">Server</a>.<a href="devicesocket.server.html#on">on</a></p>
+								<p>Inherited from <a href="clientsocket.server.html">Server</a>.<a href="clientsocket.server.html#on">on</a></p>
 								<p>Overrides EventEmitter.on</p>
 								<ul>
 									<li>Defined in node_modules/@types/ws/index.d.ts:239</li>
@@ -910,18 +1031,18 @@
 									<h5>event: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span></h5>
 								</li>
 								<li>
-									<h5>listener: <span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="devicesocket.server.html" class="tsd-signature-type">Server</a>, <span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<h5>listener: <span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="clientsocket.server.html" class="tsd-signature-type">Server</a>, <span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-signature">
 											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="devicesocket.server.html" class="tsd-signature-type">Server</a>, <span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="clientsocket.server.html" class="tsd-signature-type">Server</a>, <span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>this: <a href="devicesocket.server.html" class="tsd-signature-type">Server</a></h5>
+															<h5>this: <a href="clientsocket.server.html" class="tsd-signature-type">Server</a></h5>
 														</li>
 														<li>
 															<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
@@ -947,7 +1068,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="../interfaces/devicesocket.html">DeviceSocket</a>.<a href="../interfaces/devicesocket.html#once">once</a></p>
+								<p>Inherited from <a href="../interfaces/clientsocket.html">ClientSocket</a>.<a href="../interfaces/clientsocket.html#once">once</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:549</li>
 								</ul>
@@ -993,7 +1114,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/agsh/rpc/blob/447798d/src/server.ts#L36">src/server.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/agsh/rpc/blob/8e6e485/src/server.ts#L95">src/server.ts:95</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1015,7 +1136,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="../interfaces/devicesocket.html">DeviceSocket</a>.<a href="../interfaces/devicesocket.html#prependlistener">prependListener</a></p>
+								<p>Inherited from <a href="../interfaces/clientsocket.html">ClientSocket</a>.<a href="../interfaces/clientsocket.html#prependlistener">prependListener</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:560</li>
 								</ul>
@@ -1060,7 +1181,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="../interfaces/devicesocket.html">DeviceSocket</a>.<a href="../interfaces/devicesocket.html#prependoncelistener">prependOnceListener</a></p>
+								<p>Inherited from <a href="../interfaces/clientsocket.html">ClientSocket</a>.<a href="../interfaces/clientsocket.html#prependoncelistener">prependOnceListener</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:561</li>
 								</ul>
@@ -1105,7 +1226,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="../interfaces/devicesocket.html">DeviceSocket</a>.<a href="../interfaces/devicesocket.html#rawlisteners">rawListeners</a></p>
+								<p>Inherited from <a href="../interfaces/clientsocket.html">ClientSocket</a>.<a href="../interfaces/clientsocket.html#rawlisteners">rawListeners</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:556</li>
 								</ul>
@@ -1130,16 +1251,50 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/agsh/rpc/blob/447798d/src/server.ts#L131">src/server.ts:131</a></li>
+									<li>Defined in <a href="https://github.com/agsh/rpc/blob/8e6e485/src/server.ts#L261">src/server.ts:261</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Register the method on the server side, handler accepts token of the client
+										it was called and params as an object and must return an <code>object</code> or a
+									<code>Promise&lt;object&gt;</code> which will be held on the client side.</p>
+								</div>
+								<p>First argument of the handler is the context object, which contains by the
+								default token and unique message id of the rpc call</p>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-typescript">rpc.register(<span class="hljs-string">'ping'</span>, <span class="hljs-function">(<span class="hljs-params">ctx, params</span>) =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(ctx.id, <span class="hljs-string">'server ping from'</span>, ctx.token, params);
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve({ server: <span class="hljs-string">'pong'</span> });
+});</code></pre>
+										<p>You can throw an exception in the handler and on the caller side the client
+										will catch the rejection of the calling promise.</p>
+									</dd>
+									<dt>example</dt>
+									<dd><pre><code class="language-typescript">rpc.register(<span class="hljs-string">'exception'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'server exception'</span>);
+});
+
+<span class="hljs-comment">// client</span>
+ws.call(<span class="hljs-string">'exception'</span>, {})
+  .catch(<span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(e.message)); <span class="hljs-comment">// prints "server exception"</span></code></pre>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>method: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Method name</p>
+									</div>
 								</li>
 								<li>
 									<h5>handler: <span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><a href="../interfaces/rpccontext.html" class="tsd-signature-type">RPCContext</a>, params<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Handler with context and params arguments</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-signature">
 											<ul class="tsd-signatures tsd-kind-type-literal">
@@ -1176,7 +1331,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="../interfaces/devicesocket.html">DeviceSocket</a>.<a href="../interfaces/devicesocket.html#removealllisteners">removeAllListeners</a></p>
+								<p>Inherited from <a href="../interfaces/clientsocket.html">ClientSocket</a>.<a href="../interfaces/clientsocket.html#removealllisteners">removeAllListeners</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:552</li>
 								</ul>
@@ -1200,7 +1355,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="devicesocket.server.html">Server</a>.<a href="devicesocket.server.html#removelistener">removeListener</a></p>
+								<p>Inherited from <a href="clientsocket.server.html">Server</a>.<a href="clientsocket.server.html#removelistener">removeListener</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:550</li>
 								</ul>
@@ -1245,7 +1400,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="../interfaces/devicesocket.html">DeviceSocket</a>.<a href="../interfaces/devicesocket.html#setmaxlisteners">setMaxListeners</a></p>
+								<p>Inherited from <a href="../interfaces/clientsocket.html">ClientSocket</a>.<a href="../interfaces/clientsocket.html#setmaxlisteners">setMaxListeners</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/node/globals.d.ts:553</li>
 								</ul>
@@ -1269,7 +1424,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="devicesocket.server.html">Server</a>.<a href="devicesocket.server.html#shouldhandle">shouldHandle</a></p>
+								<p>Inherited from <a href="clientsocket.server.html">Server</a>.<a href="clientsocket.server.html#shouldhandle">shouldHandle</a></p>
 								<ul>
 									<li>Defined in node_modules/@types/ws/index.d.ts:232</li>
 								</ul>
@@ -1312,6 +1467,9 @@
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 								<a href="server.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-event tsd-parent-kind-class">
+								<a href="server.html#rpcclose" class="tsd-kind-icon">rpc<wbr>Close</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="server.html#clients" class="tsd-kind-icon">clients</a>
@@ -1405,7 +1563,7 @@
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/devicesocket.html" class="tsd-kind-icon">Device<wbr>Socket</a>
+						<a href="../interfaces/clientsocket.html" class="tsd-kind-icon">Client<wbr>Socket</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/rpccontext.html" class="tsd-kind-icon">RPCContext</a>
@@ -1414,13 +1572,16 @@
 						<a href="../interfaces/rpcmessage.html" class="tsd-kind-icon">RPCMessage</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="../interfaces/requestparams.html" class="tsd-kind-icon">Request<wbr>Params</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="../interfaces/serveroptions.html" class="tsd-kind-icon">Server<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#id" class="tsd-kind-icon">id</a>
+						<a href="../globals.html#id" class="tsd-kind-icon">Id</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#name" class="tsd-kind-icon">name</a>
+						<a href="../globals.html#name" class="tsd-kind-icon">Name</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../globals.html#ws" class="tsd-kind-icon">ws</a>

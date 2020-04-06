@@ -67,114 +67,24 @@
 				<a href="#dual-rpc-via-websockets" id="dual-rpc-via-websockets" style="color: inherit; text-decoration: none;">
 					<h1>Dual rpc via websockets</h1>
 				</a>
-				<a href="#client-class" id="client-class" style="color: inherit; text-decoration: none;">
-					<h2>Client class</h2>
+				<p>This library helps to organize the remote methods calls via websockets in both
+				directions: from the server to the client and vice versa.</p>
+				<p>Docs: <a href="https://agsh.github.io/dual-rpc-ws">https://agsh.github.io/dual-rpc-ws</a></p>
+				<p>The project splits into two parts:</p>
+				<a href="#clent-side-class-client" id="clent-side-class-client" style="color: inherit; text-decoration: none;">
+					<h2>Clent-side class <code>Client</code></h2>
 				</a>
-				<a href="#constructor-token-string-address-string" id="constructor-token-string-address-string" style="color: inherit; text-decoration: none;">
-					<h3>Constructor (token: string, address: string)</h3>
+				<p>Can be imported from the <code>@noveo/dual-rpc-ws/client</code></p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> Client <span class="hljs-keyword">from</span> <span class="hljs-string">'@noveo/dual-rpc-ws/client'</span>;</code></pre>
+				<p>Documentation for it can be found here: <a href="https://agsh.github.io/dual-rpc-ws/classes/client.html">https://agsh.github.io/dual-rpc-ws/classes/client.html</a></p>
+				<a href="#server-side-class-server" id="server-side-class-server" style="color: inherit; text-decoration: none;">
+					<h2>Server-side class <code>Server</code></h2>
 				</a>
-				<p>Connect to the server using an address and unique id that concrete the client</p>
-				<a href="#methods" id="methods" style="color: inherit; text-decoration: none;">
-					<h3>Methods</h3>
-				</a>
-				<a href="#callmethod-string-params-objectarray-promiseltobjectgt" id="callmethod-string-params-objectarray-promiseltobjectgt" style="color: inherit; text-decoration: none;">
-					<h3>call(method: string, params?: object|Array): Promise&lt;object&gt;</h3>
-				</a>
-				<p>Call the server method using params as one argument construction.
-				Returns a Promise with the JSON response from the server</p>
-				<a href="#registermethod-string-handler-functionltpromisegt-void" id="registermethod-string-handler-functionltpromisegt-void" style="color: inherit; text-decoration: none;">
-					<h3>register(method: string, handler: Function&lt;Promise&gt;): void</h3>
-				</a>
-				<p>Register the method on the client side, handler must return an object or a Promise&lt;object&gt;
-				which will be held on the server side</p>
-				<a href="#events" id="events" style="color: inherit; text-decoration: none;">
-					<h3>Events</h3>
-				</a>
-				<a href="#handshakeevent-detail-boolean" id="handshakeevent-detail-boolean" style="color: inherit; text-decoration: none;">
-					<h3>handshake(event: {detail: boolean})</h3>
-				</a>
-				<p>In this time we can send messages to the server, the connection is accepted
-				when <code>detail</code> argument is true. Otherwise the connection is aborted</p>
-				<a href="#server-class" id="server-class" style="color: inherit; text-decoration: none;">
-					<h2>Server class</h2>
-				</a>
-				<a href="#constructor-handshake-token-string-ws-devicesocket-gt-promiseltbooleangt-wsserveroptions" id="constructor-handshake-token-string-ws-devicesocket-gt-promiseltbooleangt-wsserveroptions" style="color: inherit; text-decoration: none;">
-					<h3>Constructor ({handshake?: (token: string, ws: DeviceSocket) =&gt; Promise&lt;boolean&gt;, ...ws.ServerOptions})</h3>
-				</a>
-				<p>Setup the server with ws.ServerOptions object.
-					<code>hanshake</code> is the handler for the new connections. It accepts client token, Websocket instance
-					of the new connection and returns <code>true</code>
-				if connection can be established and false to broke the connection</p>
-				<a href="#methods-1" id="methods-1" style="color: inherit; text-decoration: none;">
-					<h3>Methods</h3>
-				</a>
-				<a href="#calltoken-string-method-string-params-objectarray-promiseltobjectgt" id="calltoken-string-method-string-params-objectarray-promiseltobjectgt" style="color: inherit; text-decoration: none;">
-					<h3>call(token: string, method: string, params?: object|Array): Promise&lt;object&gt;</h3>
-				</a>
-				<p>Call the client with the token method using params as one argument construction.
-				Returns a Promise with the JSON response from the client</p>
-				<a href="#registermethod-string-handler-token-string-params-object-gt-promiseltobjectgt-void" id="registermethod-string-handler-token-string-params-object-gt-promiseltobjectgt-void" style="color: inherit; text-decoration: none;">
-					<h3>register(method: string, handler: (token: string, params: object) =&gt; Promise&lt;object&gt;): void</h3>
-				</a>
-				<p>Register the method on the server side, handler accepts token of the client it was called
-					and params as an object and must return an object or a Promise&lt;object&gt;
-				which will be held on the client side</p>
-				<a href="#exception-handling-for-the-register-method" id="exception-handling-for-the-register-method" style="color: inherit; text-decoration: none;">
-					<h4>Exception handling for the register method</h4>
-				</a>
-				<p>You can throw an exception in handler and</p>
-				<a href="#events-1" id="events-1" style="color: inherit; text-decoration: none;">
-					<h3>Events</h3>
-				</a>
-				<a href="#rpcclosetoken-string" id="rpcclosetoken-string" style="color: inherit; text-decoration: none;">
-					<h3>rpcClose(token: string)</h3>
-				</a>
-				<p>Fires when the socket connection closes</p>
-				<a href="#example-of-usage" id="example-of-usage" style="color: inherit; text-decoration: none;">
-					<h3>Example of usage</h3>
-				</a>
-				<p>Client</p>
-				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Client(<span class="hljs-string">'id1'</span>, <span class="hljs-string">'ws://localhost:8081'</span>);
-client.addEventListener(<span class="hljs-string">'handshake'</span>, (event) =&gt; {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'We can send messages to the server with this token:'</span>, event.detail);
-    <span class="hljs-keyword">if</span> (event.detail === <span class="hljs-literal">true</span>) {
-        client.call(<span class="hljs-string">'ping'</span>).then(<span class="hljs-function">(<span class="hljs-params">data</span>) =&gt;</span> {
-            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ping data:'</span>, data)
-        });
-        setInterval(<span class="hljs-keyword">async</span> () =&gt; {
-            <span class="hljs-keyword">try</span> {
-                <span class="hljs-keyword">const</span> a = <span class="hljs-keyword">await</span> client.call(<span class="hljs-string">'hi'</span>, { <span class="hljs-attr">a</span>: <span class="hljs-number">2</span> });
-                <span class="hljs-built_in">console</span>.log(a);
-            } <span class="hljs-keyword">catch</span> (e) {}
-        }, <span class="hljs-number">20000</span>);
-    }
-});
-client.register(<span class="hljs-string">'hi'</span>, (params) =&gt; {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'client hi'</span>, params);
-    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve(<span class="hljs-string">`hello, <span class="hljs-subst">${params.b}</span>`</span>);
-});</code></pre>
-				<p>Server</p>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> Server <span class="hljs-keyword">from</span> <span class="hljs-string">'@noveo/dual-rpc-ws'</span>;
-
-<span class="hljs-keyword">const</span> server = <span class="hljs-keyword">new</span> Server({
-  port: <span class="hljs-number">8081</span>,
-  handshake: <span class="hljs-keyword">async</span> (id) =&gt; {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'connected'</span>, id);
-    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve(<span class="hljs-literal">true</span>);
-  },
-});
-
-server.register(<span class="hljs-string">'hi'</span>, <span class="hljs-function">(<span class="hljs-params">token: <span class="hljs-built_in">string</span>, params: <span class="hljs-built_in">any</span></span>) =&gt;</span> {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'server hi'</span>, params);
-  <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve(<span class="hljs-string">`<span class="hljs-subst">${token}</span>, hello, <span class="hljs-subst">${params.a}</span>`</span>);
-});
-
-setInterval(<span class="hljs-keyword">async</span> () =&gt; {
-  <span class="hljs-keyword">try</span> {
-    <span class="hljs-keyword">const</span> a = <span class="hljs-keyword">await</span> server.call(<span class="hljs-string">'id1'</span>, <span class="hljs-string">'hi'</span>, { b: <span class="hljs-number">2</span> });
-    <span class="hljs-built_in">console</span>.log(a);
-  } <span class="hljs-keyword">catch</span> (e) {}
-}, <span class="hljs-number">20000</span>);</code></pre>
+				<p>Can be imported from the <code>@noveo/dual-rpc-ws/server</code></p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> Server <span class="hljs-keyword">from</span> <span class="hljs-string">'@noveo/dual-rpc-ws/server'</span>;
+<span class="hljs-comment">// or</span>
+<span class="hljs-keyword">import</span> { Server } <span class="hljs-keyword">from</span> <span class="hljs-string">'@noveo/dual-rpc-ws'</span>;</code></pre>
+				<p>Documentation for it can be found here: <a href="https://agsh.github.io/dual-rpc-ws/classes/server.html">https://agsh.github.io/dual-rpc-ws/classes/server.html</a></p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -200,7 +110,7 @@ setInterval(<span class="hljs-keyword">async</span> () =&gt; {
 						<a href="classes/server.html" class="tsd-kind-icon">Server</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/devicesocket.html" class="tsd-kind-icon">Device<wbr>Socket</a>
+						<a href="interfaces/clientsocket.html" class="tsd-kind-icon">Client<wbr>Socket</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/rpccontext.html" class="tsd-kind-icon">RPCContext</a>
@@ -209,13 +119,16 @@ setInterval(<span class="hljs-keyword">async</span> () =&gt; {
 						<a href="interfaces/rpcmessage.html" class="tsd-kind-icon">RPCMessage</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/requestparams.html" class="tsd-kind-icon">Request<wbr>Params</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/serveroptions.html" class="tsd-kind-icon">Server<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#id" class="tsd-kind-icon">id</a>
+						<a href="globals.html#id" class="tsd-kind-icon">Id</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#name" class="tsd-kind-icon">name</a>
+						<a href="globals.html#name" class="tsd-kind-icon">Name</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#ws" class="tsd-kind-icon">ws</a>

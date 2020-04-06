@@ -66,6 +66,19 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Common class for the remote procedure request. It hides inside the timeout
+							handling and also the resolve and reject functions for the returned promise
+						from the <a href="server.html#call">Server.call</a> and <a href="client.html#call">Client.call</a> methods</p>
+					</div>
+					<dl class="tsd-comment-tags">
+						<dt>internal</dt>
+						<dd></dd>
+					</dl>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -101,28 +114,76 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Request<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>destructor<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">; </span>reject<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">; </span>resolve<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">; </span>timeout<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="request.html" class="tsd-signature-type">Request</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Request<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>destructor<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span>reject<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span>resolve<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>result<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span>timeout<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="request.html" class="tsd-signature-type">Request</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/agsh/rpc/blob/447798d/src/common.ts#L104">src/common.ts:104</a></li>
+									<li>Defined in <a href="https://github.com/agsh/rpc/blob/8e6e485/src/common.ts#L128">src/common.ts:128</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>destructor<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">; </span>reject<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">; </span>resolve<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">; </span>timeout<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span></h5>
+									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>destructor<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span>reject<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span>resolve<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>result<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span>timeout<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter">
-											<h5>destructor<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span></h5>
+											<h5>destructor<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+											<ul class="tsd-parameters">
+												<li class="tsd-parameter-signature">
+													<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-variable">
+														<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+													</ul>
+													<ul class="tsd-descriptions">
+														<li class="tsd-description">
+															<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+														</li>
+													</ul>
+												</li>
+											</ul>
 										</li>
 										<li class="tsd-parameter">
-											<h5>reject<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span></h5>
+											<h5>reject<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+											<ul class="tsd-parameters">
+												<li class="tsd-parameter-signature">
+													<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-variable">
+														<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+													</ul>
+													<ul class="tsd-descriptions">
+														<li class="tsd-description">
+															<h4 class="tsd-parameters-title">Parameters</h4>
+															<ul class="tsd-parameters">
+																<li>
+																	<h5>error: <span class="tsd-signature-type">Error</span></h5>
+																</li>
+															</ul>
+															<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+														</li>
+													</ul>
+												</li>
+											</ul>
 										</li>
 										<li class="tsd-parameter">
-											<h5>resolve<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span></h5>
+											<h5>resolve<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>result<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+											<ul class="tsd-parameters">
+												<li class="tsd-parameter-signature">
+													<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-variable">
+														<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>result<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+													</ul>
+													<ul class="tsd-descriptions">
+														<li class="tsd-description">
+															<h4 class="tsd-parameters-title">Parameters</h4>
+															<ul class="tsd-parameters">
+																<li>
+																	<h5>result: <span class="tsd-signature-type">any</span></h5>
+																</li>
+															</ul>
+															<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+														</li>
+													</ul>
+												</li>
+											</ul>
 										</li>
 										<li class="tsd-parameter">
 											<h5>timeout<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
@@ -140,22 +201,64 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="reject" class="tsd-anchor"></a>
 					<h3>reject</h3>
-					<div class="tsd-signature tsd-kind-icon">reject<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Function</span></div>
+					<div class="tsd-signature tsd-kind-icon">reject<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/agsh/rpc/blob/447798d/src/common.ts#L104">src/common.ts:104</a></li>
+							<li>Defined in <a href="https://github.com/agsh/rpc/blob/8e6e485/src/common.ts#L128">src/common.ts:128</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>error: <span class="tsd-signature-type">Error</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="resolve" class="tsd-anchor"></a>
 					<h3>resolve</h3>
-					<div class="tsd-signature tsd-kind-icon">resolve<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Function</span></div>
+					<div class="tsd-signature tsd-kind-icon">resolve<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>result<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/agsh/rpc/blob/447798d/src/common.ts#L103">src/common.ts:103</a></li>
+							<li>Defined in <a href="https://github.com/agsh/rpc/blob/8e6e485/src/common.ts#L127">src/common.ts:127</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>result<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>result: <span class="tsd-signature-type">any</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="timer" class="tsd-anchor"></a>
@@ -163,7 +266,7 @@
 					<div class="tsd-signature tsd-kind-icon">timer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/agsh/rpc/blob/447798d/src/common.ts#L102">src/common.ts:102</a></li>
+							<li>Defined in <a href="https://github.com/agsh/rpc/blob/8e6e485/src/common.ts#L126">src/common.ts:126</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -210,7 +313,7 @@
 						<a href="server.html" class="tsd-kind-icon">Server</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/devicesocket.html" class="tsd-kind-icon">Device<wbr>Socket</a>
+						<a href="../interfaces/clientsocket.html" class="tsd-kind-icon">Client<wbr>Socket</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/rpccontext.html" class="tsd-kind-icon">RPCContext</a>
@@ -219,13 +322,16 @@
 						<a href="../interfaces/rpcmessage.html" class="tsd-kind-icon">RPCMessage</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="../interfaces/requestparams.html" class="tsd-kind-icon">Request<wbr>Params</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="../interfaces/serveroptions.html" class="tsd-kind-icon">Server<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#id" class="tsd-kind-icon">id</a>
+						<a href="../globals.html#id" class="tsd-kind-icon">Id</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#name" class="tsd-kind-icon">name</a>
+						<a href="../globals.html#name" class="tsd-kind-icon">Name</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../globals.html#ws" class="tsd-kind-icon">ws</a>
