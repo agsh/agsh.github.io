@@ -145,7 +145,7 @@
 					<div class="tsd-signature tsd-kind-icon">handshake<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><a href="../globals.html#id" class="tsd-signature-type">Id</a>, ws<span class="tsd-signature-symbol">: </span><a href="clientsocket.html" class="tsd-signature-type">ClientSocket</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/agsh/rpc/blob/8e6e485/src/server.ts#L35">src/server.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/agsh/rpc/blob/6aacdbf/src/server.ts#L35">src/server.ts:35</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -247,16 +247,27 @@
 					<div class="tsd-signature tsd-kind-icon">prepare<wbr>Context<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><a href="rpccontext.html" class="tsd-signature-type">RPCContext</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/agsh/rpc/blob/8e6e485/src/server.ts#L40">src/server.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/agsh/rpc/blob/6aacdbf/src/server.ts#L51">src/server.ts:51</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Function</p>
+							<p>Optional function to define initial context for the <a href="../classes/server.html#register">Server.register</a>
+							handlers. By default it returns the <a href="rpccontext.html">RPCContext</a> object</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt>param</dt>
-							<dd></dd>
+							<dd><p>An object with the <code>token</code> and <code>id</code> properties</p>
+							</dd>
+							<dt>example</dt>
+							<dd><pre><code class="language-typescript"><span class="hljs-keyword">const</span> server = <span class="hljs-keyword">new</span> Server({
+  ...
+  prepareContext: <span class="hljs-function">(<span class="hljs-params">ctx</span>) =&gt;</span> ({ ...ctx, useWS: <span class="hljs-literal">true</span> }),
+});
+server.register(<span class="hljs-string">'ping'</span>, <span class="hljs-function">(<span class="hljs-params">ctx, params</span>) =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(ctx.id, <span class="hljs-string">'server ping from'</span>, ctx.token, params, ctx.useWS);
+});</code></pre>
+							</dd>
 						</dl>
 					</div>
 				</section>
@@ -371,9 +382,6 @@
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../globals.html#name" class="tsd-kind-icon">Name</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#ws" class="tsd-kind-icon">ws</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#getmessageandtype" class="tsd-kind-icon">get<wbr>Message<wbr>And<wbr>Type</a>
