@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e44c57c-2f52-4c0d-af27-42e23e5842da" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/dual-rpc-ws/interfaces/clientoptions.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +64,7 @@
       <option name="presentableId" value="Default" />
       <updated>1586193875891</updated>
       <workItem from="1586193877271" duration="1616000" />
-      <workItem from="1586251081346" duration="1225000" />
+      <workItem from="1586251081346" duration="1507000" />
     </task>
     <task id="LOCAL-00001" summary="dual-rpc-ws">
       <created>1586194141865</created>
@@ -86,7 +87,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586260481573</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="dual-rpc-ws update docs">
+      <created>1586272986792</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1586272986792</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,13 +106,13 @@
     <option name="LAST_COMMIT_MESSAGE" value="dual-rpc-ws update docs" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="376" y="3" key="CommitChangelistDialog2" timestamp="1586260480707">
+    <state x="376" y="3" key="CommitChangelistDialog2" timestamp="1586272986011">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="376" y="3" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1586260480707" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1586260483355">
+    <state x="376" y="3" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1586272986011" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1586272988418">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1586260483355" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1586272988418" />
   </component>
 </project>
