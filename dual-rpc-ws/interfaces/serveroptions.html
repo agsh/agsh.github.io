@@ -145,7 +145,7 @@
 					<div class="tsd-signature tsd-kind-icon">handshake<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><a href="../globals.html#id" class="tsd-signature-type">Id</a>, ws<span class="tsd-signature-symbol">: </span><a href="clientsocket.html" class="tsd-signature-type">ClientSocket</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/agsh/rpc/blob/6aacdbf/src/server.ts#L35">src/server.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/agsh/rpc/blob/f9589f6/src/server.ts#L35">src/server.ts:35</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -247,7 +247,7 @@
 					<div class="tsd-signature tsd-kind-icon">prepare<wbr>Context<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><a href="rpccontext.html" class="tsd-signature-type">RPCContext</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/agsh/rpc/blob/6aacdbf/src/server.ts#L51">src/server.ts:51</a></li>
+							<li>Defined in <a href="https://github.com/agsh/rpc/blob/f9589f6/src/server.ts#L52">src/server.ts:52</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -257,7 +257,8 @@
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt>param</dt>
-							<dd><p>An object with the <code>token</code> and <code>id</code> properties</p>
+							<dd><p>An object with the <code>token</code> and <code>id</code> properties. Where <code>id</code> - is
+								a unique method call identifier</p>
 							</dd>
 							<dt>example</dt>
 							<dd><pre><code class="language-typescript"><span class="hljs-keyword">const</span> server = <span class="hljs-keyword">new</span> Server({
@@ -316,6 +317,9 @@ server.register(<span class="hljs-string">'ping'</span>, <span class="hljs-funct
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="../classes/server.html" class="tsd-kind-icon">Server</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="clientoptions.html" class="tsd-kind-icon">Client<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="clientsocket.html" class="tsd-kind-icon">Client<wbr>Socket</a>
