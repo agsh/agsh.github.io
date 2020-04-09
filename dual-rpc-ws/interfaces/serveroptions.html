@@ -145,7 +145,7 @@
 					<div class="tsd-signature tsd-kind-icon">handshake<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><a href="../globals.html#id" class="tsd-signature-type">Id</a>, ws<span class="tsd-signature-symbol">: </span><a href="clientsocket.html" class="tsd-signature-type">ClientSocket</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/agsh/rpc/blob/8bf3936/src/server.ts#L36">src/server.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/agsh/rpc/blob/c1f8dae/src/server.ts#L54">src/server.ts:54</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -247,7 +247,7 @@
 					<div class="tsd-signature tsd-kind-icon">prepare<wbr>Context<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><a href="rpccontext.html" class="tsd-signature-type">RPCContext</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/agsh/rpc/blob/8bf3936/src/server.ts#L53">src/server.ts:53</a></li>
+							<li>Defined in <a href="https://github.com/agsh/rpc/blob/c1f8dae/src/server.ts#L71">src/server.ts:71</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -325,10 +325,22 @@ server.register(<span class="hljs-string">'ping'</span>, <span class="hljs-funct
 						<a href="clientsocket.html" class="tsd-kind-icon">Client<wbr>Socket</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="rpcconnect.html" class="tsd-kind-icon">RPCConnect</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="rpccontext.html" class="tsd-kind-icon">RPCContext</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="rpcmessage.html" class="tsd-kind-icon">RPCMessage</a>
+						<a href="rpcerror.html" class="tsd-kind-icon">RPCError</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="rpcmalformed.html" class="tsd-kind-icon">RPCMalformed</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="rpcrequest.html" class="tsd-kind-icon">RPCRequest</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="rpcresponse.html" class="tsd-kind-icon">RPCResponse</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="requestparams.html" class="tsd-kind-icon">Request<wbr>Params</a>
@@ -381,6 +393,9 @@ server.register(<span class="hljs-string">'ping'</span>, <span class="hljs-funct
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface">
+						<a href="serverstats.html" class="tsd-kind-icon">Server<wbr>Stats</a>
+					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../globals.html#id" class="tsd-kind-icon">Id</a>
 					</li>
@@ -390,8 +405,11 @@ server.register(<span class="hljs-string">'ping'</span>, <span class="hljs-funct
 					<li class=" tsd-kind-type-alias">
 						<a href="../globals.html#name" class="tsd-kind-icon">Name</a>
 					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../globals.html#rpcmessagetype" class="tsd-kind-icon">RPCMessage<wbr>Type</a>
+					</li>
 					<li class=" tsd-kind-function">
-						<a href="../globals.html#getmessageandtype" class="tsd-kind-icon">get<wbr>Message<wbr>And<wbr>Type</a>
+						<a href="../globals.html#getmessage" class="tsd-kind-icon">get<wbr>Message</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#rpcerror" class="tsd-kind-icon">rpc<wbr>Error</a>
