@@ -68,6 +68,13 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Namespaces</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-namespace"><a href="modules/rpchelpers.html" class="tsd-kind-icon">RPCHelpers</a></li>
+								<li class="tsd-kind-namespace"><a href="modules/rpcmessages.html" class="tsd-kind-icon">RPCMessages</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Enumerations</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-enum"><a href="enums/messagetype.html" class="tsd-kind-icon">Message<wbr>Type</a></li>
@@ -86,12 +93,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-interface"><a href="interfaces/clientoptions.html" class="tsd-kind-icon">Client<wbr>Options</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/clientsocket.html" class="tsd-kind-icon">Client<wbr>Socket</a></li>
-								<li class="tsd-kind-interface"><a href="interfaces/rpcconnect.html" class="tsd-kind-icon">RPCConnect</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/rpccontext.html" class="tsd-kind-icon">RPCContext</a></li>
-								<li class="tsd-kind-interface"><a href="interfaces/rpcerror.html" class="tsd-kind-icon">RPCError</a></li>
-								<li class="tsd-kind-interface"><a href="interfaces/rpcmalformed.html" class="tsd-kind-icon">RPCMalformed</a></li>
-								<li class="tsd-kind-interface"><a href="interfaces/rpcrequest.html" class="tsd-kind-icon">RPCRequest</a></li>
-								<li class="tsd-kind-interface"><a href="interfaces/rpcresponse.html" class="tsd-kind-icon">RPCResponse</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/requestparams.html" class="tsd-kind-icon">Request<wbr>Params</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/serveroptions.html" class="tsd-kind-icon">Server<wbr>Options</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/serverstats.html" class="tsd-kind-icon">Server<wbr>Stats</a></li>
@@ -103,16 +105,12 @@
 								<li class="tsd-kind-type-alias"><a href="globals.html#id" class="tsd-kind-icon">Id</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#jsonvalue" class="tsd-kind-icon">JSONValue</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#name" class="tsd-kind-icon">Name</a></li>
-								<li class="tsd-kind-type-alias"><a href="globals.html#rpcmessagetype" class="tsd-kind-icon">RPCMessage<wbr>Type</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function"><a href="globals.html#getmessage" class="tsd-kind-icon">get<wbr>Message</a></li>
-								<li class="tsd-kind-function"><a href="globals.html#rpcerror" class="tsd-kind-icon">rpc<wbr>Error</a></li>
-								<li class="tsd-kind-function"><a href="globals.html#rpcrequest" class="tsd-kind-icon">rpc<wbr>Request</a></li>
-								<li class="tsd-kind-function"><a href="globals.html#rpcresponse" class="tsd-kind-icon">rpc<wbr>Response</a></li>
 							</ul>
 						</section>
 					</div>
@@ -165,25 +163,6 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias">
-					<a name="rpcmessagetype" class="tsd-anchor"></a>
-					<h3>RPCMessage<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">RPCMessage<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="interfaces/rpcconnect.html" class="tsd-signature-type">RPCConnect</a><span class="tsd-signature-symbol"> | </span><a href="interfaces/rpcerror.html" class="tsd-signature-type">RPCError</a><span class="tsd-signature-symbol"> | </span><a href="interfaces/rpcmalformed.html" class="tsd-signature-type">RPCMalformed</a><span class="tsd-signature-symbol"> | </span><a href="interfaces/rpcrequest.html" class="tsd-signature-type">RPCRequest</a><span class="tsd-signature-symbol"> | </span><a href="interfaces/rpcresponse.html" class="tsd-signature-type">RPCResponse</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/agsh/rpc/blob/c1f8dae/src/common.ts#L70">src/common.ts:70</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Common structure of the JSON-RPC 2.0 message</p>
-						</div>
-						<dl class="tsd-comment-tags">
-							<dt>internal</dt>
-							<dd></dd>
-						</dl>
-					</div>
-				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
@@ -191,13 +170,13 @@
 					<a name="getmessage" class="tsd-anchor"></a>
 					<h3>get<wbr>Message</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Message<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#rpcmessagetype" class="tsd-signature-type">RPCMessageType</a></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Message<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="modules/rpcmessages.html#rpcmessagetype" class="tsd-signature-type">RPCMessageType</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/agsh/rpc/blob/c1f8dae/src/common.ts#L121">src/common.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/agsh/rpc/blob/c1f8dae/src/common.ts#L130">src/common.ts:130</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -215,88 +194,7 @@
 									<h5>data: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="globals.html#rpcmessagetype" class="tsd-signature-type">RPCMessageType</a></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="rpcerror" class="tsd-anchor"></a>
-					<h3>rpc<wbr>Error</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">rpc<wbr>Error<span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, id<span class="tsd-signature-symbol">: </span><a href="globals.html#id" class="tsd-signature-type">Id</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/agsh/rpc/blob/c1f8dae/src/common.ts#L218">src/common.ts:218</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>error: <span class="tsd-signature-type">any</span></h5>
-								</li>
-								<li>
-									<h5>id: <a href="globals.html#id" class="tsd-signature-type">Id</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="rpcrequest" class="tsd-anchor"></a>
-					<h3>rpc<wbr>Request</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">rpc<wbr>Request<span class="tsd-signature-symbol">(</span>method<span class="tsd-signature-symbol">: </span><a href="globals.html#name" class="tsd-signature-type">Name</a>, params<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, id<span class="tsd-signature-symbol">: </span><a href="globals.html#id" class="tsd-signature-type">Id</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/agsh/rpc/blob/c1f8dae/src/common.ts#L194">src/common.ts:194</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>method: <a href="globals.html#name" class="tsd-signature-type">Name</a></h5>
-								</li>
-								<li>
-									<h5>params: <span class="tsd-signature-type">any</span></h5>
-								</li>
-								<li>
-									<h5>id: <a href="globals.html#id" class="tsd-signature-type">Id</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="rpcresponse" class="tsd-anchor"></a>
-					<h3>rpc<wbr>Response</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">rpc<wbr>Response<span class="tsd-signature-symbol">(</span>result<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, id<span class="tsd-signature-symbol">: </span><a href="globals.html#id" class="tsd-signature-type">Id</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/agsh/rpc/blob/c1f8dae/src/common.ts#L203">src/common.ts:203</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> result: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = null</span></h5>
-								</li>
-								<li>
-									<h5>id: <a href="globals.html#id" class="tsd-signature-type">Id</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="modules/rpcmessages.html#rpcmessagetype" class="tsd-signature-type">RPCMessageType</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -307,6 +205,12 @@
 				<ul>
 					<li class="globals current ">
 						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="modules/rpchelpers.html">RPCHelpers</a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="modules/rpcmessages.html">RPCMessages</a>
 					</li>
 				</ul>
 			</nav>
@@ -331,22 +235,7 @@
 						<a href="interfaces/clientsocket.html" class="tsd-kind-icon">Client<wbr>Socket</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/rpcconnect.html" class="tsd-kind-icon">RPCConnect</a>
-					</li>
-					<li class=" tsd-kind-interface">
 						<a href="interfaces/rpccontext.html" class="tsd-kind-icon">RPCContext</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/rpcerror.html" class="tsd-kind-icon">RPCError</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/rpcmalformed.html" class="tsd-kind-icon">RPCMalformed</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/rpcrequest.html" class="tsd-kind-icon">RPCRequest</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/rpcresponse.html" class="tsd-kind-icon">RPCResponse</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/requestparams.html" class="tsd-kind-icon">Request<wbr>Params</a>
@@ -366,20 +255,8 @@
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#name" class="tsd-kind-icon">Name</a>
 					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#rpcmessagetype" class="tsd-kind-icon">RPCMessage<wbr>Type</a>
-					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#getmessage" class="tsd-kind-icon">get<wbr>Message</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#rpcerror" class="tsd-kind-icon">rpc<wbr>Error</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#rpcrequest" class="tsd-kind-icon">rpc<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#rpcresponse" class="tsd-kind-icon">rpc<wbr>Response</a>
 					</li>
 				</ul>
 			</nav>

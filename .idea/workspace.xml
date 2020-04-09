@@ -12,45 +12,28 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="C:\Users\xiaomi\WebstormProjects\agsh.github.io\.idea" />
-      </set>
-    </option>
-  </component>
   <component name="ProjectId" id="1aB0rDs8Nt2gMxuRyo9MGfPhxyO" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/dual-rpc-ws" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\xiaomi\WebstormProjects\agsh.github.io\dual-rpc-ws" />
+      <recent name="C:\Users\xiaomi\WebstormProjects\agsh.github.io\dual-rpc-ws\interfaces" />
+      <recent name="C:\Users\xiaomi\WebstormProjects\agsh.github.io\dual-rpc-ws\classes" />
       <recent name="C:\Users\xiaomi\WebstormProjects\agsh.github.io" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\xiaomi\WebstormProjects\agsh.github.io" />
     </key>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -63,7 +46,11 @@
       <option name="presentableId" value="Default" />
       <updated>1586193875891</updated>
       <workItem from="1586193877271" duration="1616000" />
-      <workItem from="1586251081346" duration="1868000" />
+      <workItem from="1586251081346" duration="2700000" />
+      <workItem from="1586340399526" duration="1305000" />
+      <workItem from="1586346555927" duration="117000" />
+      <workItem from="1586350680877" duration="1534000" />
+      <workItem from="1586470815118" duration="639000" />
     </task>
     <task id="LOCAL-00001" summary="dual-rpc-ws">
       <created>1586194141865</created>
@@ -100,11 +87,60 @@
       <option name="project" value="LOCAL" />
       <updated>1586273257191</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="dual-rpc-ws update docs">
+      <created>1586273844202</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1586273844202</updated>
+    </task>
+    <task id="LOCAL-00007" summary="dual-rpc-ws update docs">
+      <created>1586340439049</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1586340439049</updated>
+    </task>
+    <task id="LOCAL-00008" summary="dual-rpc-ws update docs">
+      <created>1586341466697</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1586341466697</updated>
+    </task>
+    <task id="LOCAL-00009" summary="dual-rpc-ws update docs">
+      <created>1586346601262</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1586346601262</updated>
+    </task>
+    <task id="LOCAL-00010" summary="dual-rpc-ws update docs">
+      <created>1586350714806</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1586350714806</updated>
+    </task>
+    <task id="LOCAL-00011" summary="dual-rpc-ws update docs">
+      <created>1586351014713</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1586351014713</updated>
+    </task>
+    <task id="LOCAL-00012" summary="dual-rpc-ws update docs">
+      <created>1586470860121</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1586470860121</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="dual-rpc-ws" />
@@ -112,13 +148,13 @@
     <option name="LAST_COMMIT_MESSAGE" value="dual-rpc-ws update docs" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="376" y="3" key="CommitChangelistDialog2" timestamp="1586273256486">
+    <state x="376" y="0" key="CommitChangelistDialog2" timestamp="1586470858904">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="376" y="3" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1586273256486" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1586273258491">
+    <state x="376" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1586470858904" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1586470861491">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1586273258491" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1586470861491" />
   </component>
 </project>

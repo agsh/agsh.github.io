@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ServerStats | @noveo/dual-rpc-ws</title>
+	<title>RPCError | @noveo/dual-rpc-ws</title>
 	<meta name="description" content="Documentation for @noveo/dual-rpc-ws">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="serverstats.html">ServerStats</a>
+					<a href="../modules/rpcmessages.html">RPCMessages</a>
+				</li>
+				<li>
+					<a href="rpcmessages.rpcerror.html">RPCError</a>
 				</li>
 			</ul>
-			<h1>Interface ServerStats</h1>
+			<h1>Interface RPCError</h1>
 		</div>
 	</div>
 </header>
@@ -69,15 +72,19 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Current dual-ws-rpc server statistics</p>
+						<p>An error, if the sender rpc-call ended unexpectedly</p>
 					</div>
+					<dl class="tsd-comment-tags">
+						<dt>internal</dt>
+						<dd></dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ServerStats</span>
+						<span class="target">RPCError</span>
 					</li>
 				</ul>
 			</section>
@@ -88,9 +95,10 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="serverstats.html#connections" class="tsd-kind-icon">connections</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="serverstats.html#requestsinprogress" class="tsd-kind-icon">requests<wbr>InProgress</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="serverstats.html#responseinprogress" class="tsd-kind-icon">response<wbr>InProgress</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="rpcmessages.rpcerror.html#error" class="tsd-kind-icon">error</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="rpcmessages.rpcerror.html#id" class="tsd-kind-icon">id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="rpcmessages.rpcerror.html#jsonrpc" class="tsd-kind-icon">jsonrpc</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="rpcmessages.rpcerror.html#type" class="tsd-kind-icon">type</a></li>
 							</ul>
 						</section>
 					</div>
@@ -99,49 +107,44 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="connections" class="tsd-anchor"></a>
-					<h3>connections</h3>
-					<div class="tsd-signature tsd-kind-icon">connections<span class="tsd-signature-symbol">:</span> <a href="../globals.html#id" class="tsd-signature-type">Id</a><span class="tsd-signature-symbol">[]</span></div>
+					<a name="error" class="tsd-anchor"></a>
+					<h3>error</h3>
+					<div class="tsd-signature tsd-kind-icon">error<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/agsh/rpc/blob/c1f8dae/src/server.ts#L21">src/server.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/agsh/rpc/blob/c1f8dae/src/common.ts#L38">src/common.ts:38</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>An array of all connected tokens</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="requestsinprogress" class="tsd-anchor"></a>
-					<h3>requests<wbr>InProgress</h3>
-					<div class="tsd-signature tsd-kind-icon">requests<wbr>InProgress<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="id" class="tsd-anchor"></a>
+					<h3>id</h3>
+					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <a href="../globals.html#id" class="tsd-signature-type">Id</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/agsh/rpc/blob/c1f8dae/src/server.ts#L25">src/server.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/agsh/rpc/blob/c1f8dae/src/common.ts#L37">src/common.ts:37</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Number of processing remote procedures calls</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="responseinprogress" class="tsd-anchor"></a>
-					<h3>response<wbr>InProgress</h3>
-					<div class="tsd-signature tsd-kind-icon">response<wbr>InProgress<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="jsonrpc" class="tsd-anchor"></a>
+					<h3>jsonrpc</h3>
+					<div class="tsd-signature tsd-kind-icon">jsonrpc<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"2.0"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/agsh/rpc/blob/c1f8dae/src/server.ts#L29">src/server.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/agsh/rpc/blob/c1f8dae/src/common.ts#L36">src/common.ts:36</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Number of processing calls from clients</p>
-						</div>
-					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="type" class="tsd-anchor"></a>
+					<h3>type</h3>
+					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <a href="../enums/messagetype.html#error" class="tsd-signature-type">Error</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/agsh/rpc/blob/c1f8dae/src/common.ts#L35">src/common.ts:35</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -151,66 +154,51 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../modules/rpchelpers.html">RPCHelpers</a>
+					</li>
+					<li class="current tsd-kind-namespace">
+						<a href="../modules/rpcmessages.html">RPCMessages</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum">
-						<a href="../enums/messagetype.html" class="tsd-kind-icon">Message<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/client.html" class="tsd-kind-icon">Client</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/request.html" class="tsd-kind-icon">Request</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/server.html" class="tsd-kind-icon">Server</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="clientoptions.html" class="tsd-kind-icon">Client<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="clientsocket.html" class="tsd-kind-icon">Client<wbr>Socket</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="rpccontext.html" class="tsd-kind-icon">RPCContext</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="requestparams.html" class="tsd-kind-icon">Request<wbr>Params</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="serveroptions.html" class="tsd-kind-icon">Server<wbr>Options</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
+						<a href="rpcmessages.rpcconnect.html" class="tsd-kind-icon">RPCConnect</a>
 					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface">
-						<a href="serverstats.html" class="tsd-kind-icon">Server<wbr>Stats</a>
+					<li class="current tsd-kind-interface tsd-parent-kind-namespace">
+						<a href="rpcmessages.rpcerror.html" class="tsd-kind-icon">RPCError</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="serverstats.html#connections" class="tsd-kind-icon">connections</a>
+								<a href="rpcmessages.rpcerror.html#error" class="tsd-kind-icon">error</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="serverstats.html#requestsinprogress" class="tsd-kind-icon">requests<wbr>InProgress</a>
+								<a href="rpcmessages.rpcerror.html#id" class="tsd-kind-icon">id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="serverstats.html#responseinprogress" class="tsd-kind-icon">response<wbr>InProgress</a>
+								<a href="rpcmessages.rpcerror.html#jsonrpc" class="tsd-kind-icon">jsonrpc</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="rpcmessages.rpcerror.html#type" class="tsd-kind-icon">type</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#id" class="tsd-kind-icon">Id</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
+						<a href="rpcmessages.rpcmalformed.html" class="tsd-kind-icon">RPCMalformed</a>
 					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#jsonvalue" class="tsd-kind-icon">JSONValue</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
+						<a href="rpcmessages.rpcrequest.html" class="tsd-kind-icon">RPCRequest</a>
 					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#name" class="tsd-kind-icon">Name</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
+						<a href="rpcmessages.rpcresponse.html" class="tsd-kind-icon">RPCResponse</a>
 					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#getmessage" class="tsd-kind-icon">get<wbr>Message</a>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-namespace">
+						<a href="../modules/rpcmessages.html#rpcmessagetype" class="tsd-kind-icon">RPCMessage<wbr>Type</a>
 					</li>
 				</ul>
 			</nav>
